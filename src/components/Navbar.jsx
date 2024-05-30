@@ -20,13 +20,13 @@ const Navbar = () => {
             <div className="flex items-center">
               <NavLink to="/">
                 <span className="text-3xl font-bold text-white cursor-pointer mr-8 flex justify-center w-full">
-                  <img src={logo} alt="" className="h-5" />
+                  <img src={logo} alt="" className="md:h-5 h-4" />
                 </span>
               </NavLink>
               <div className="flex items-center justify-center flex-grow">
                 <NavLink
                   to="/favourites"
-                  className="text-xl text-[#2CBAD0] hover:text-gray-300 mx-4"
+                  className="text-xl text-[#2CBAD0] hover:text-gray-300 mx-2"
                 >
                   <FontAwesomeIcon icon={faHeart} />
                 </NavLink>
