@@ -17,25 +17,25 @@ const MovieCard = ({
     <NavLink to={media_type === "movie" ? `/movie/${id}` : `tv/${id}`}>
       <div
         key={id}
-        className="w-56 h-100 rounded-lg overflow-hidden shadow-lg m-4 flex flex-col relative min-h-[350px] min-w-[250px]"
+        className="w-56 h-100 rounded-lg overflow-hidden shadow-sm shadow-zinc-300-500 m-2 flex flex-col relative min-h-[350px] min-w-[200px] bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] hover:from-[#2E9DC4] hover:to-[#0597C2]"
       >
-        {/* Movie poster */}
         <img
           className="w-full h-2/3 object-cover"
           src={imageUrl}
           alt={title || name}
         />
-        {/* Rating circle */}
-        <div className="absolute bottom-15 left-2 bg-green-400 text-white rounded-full flex items-center justify-center w-8 h-8">
-          {Math.round(vote_average * 10, 1) + "%"}
+
+        <div className="absolute bottom-15 left-2 top-2 bg-[#30BBCE] text-white rounded-full flex items-center justify-center w-8 h-8 font-semibold hover:text-black">
+          <span className="text-center p-2">
+            {parseFloat(vote_average).toFixed(1)}
+          </span>
         </div>
         <div className="px-4 py-2 flex-1 flex flex-col justify-between">
           <div className="font-bold text-md mb-1 overflow-hidden">
             {/* Using ellipsis to truncate long titles */}
-            <p className="text-gray-900 truncate">{title || name}</p>
+            <p className="text-white truncate">{title || name}</p>
           </div>
-          <p className="text-gray-700 text-sm">
-            {/* Using word-wrap and overflow to handle long content */}
+          <p className="text-gray-200 text-sm">
             <span className="whitespace-normal break-all">
               {release_date
                 ? formatDate(release_date)
