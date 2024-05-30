@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowTrendUp,
@@ -54,7 +56,7 @@ export const NavSearchBar = ({ setIsSearchActive }) => {
         <input
           type="text"
           placeholder="Search for a movie, tv show, person..."
-          className="w-full ml-4 w-[70%] focus:outline-none"
+          className="ml-4 w-full focus:outline-none"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
@@ -94,7 +96,6 @@ export const NavSearchBar = ({ setIsSearchActive }) => {
             );
           })}
         </ul>
-        {/* Hello */}
         <div className="flex justify-center p-2 w-[70%]">
           {loading && searchText === "" ? (
             <span className="font-bold text-xla text-[#909294] ml-20">
