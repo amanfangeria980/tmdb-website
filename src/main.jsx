@@ -8,12 +8,13 @@ import Login from "./assets/pages/Login.jsx";
 import ShowPage from "./assets/pages/ShowPage.jsx";
 import WatchList from "./assets/pages/WatchList";
 import Favourites from "./assets/pages/Favourites";
+import Footer from "./assets/pages/Footer.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
-    <Routes>
+      <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/movie/:movieId" element={<ShowPage />}></Route>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="/watchlist" element={<WatchList />}></Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );

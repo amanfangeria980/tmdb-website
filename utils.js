@@ -27,23 +27,23 @@ export const trendingOptions = [
 
 export const popularOptions = [
   {
-    label: "Streaming",
-    value: "streaming",
-    apiUrl: "https://api.themoviedb.org/3/tv/airing_today",
+    label: "Featured",
+    value: "featured",
+    apiUrl: "https://api.themoviedb.org/3/movie/popular",
   },
   {
-    label: "On TV",
-    value: "tv",
-    apiUrl: "https://api.themoviedb.org/3/trending/tv",
-  },
-  {
-    label: "For Rent",
-    value: "rent",
-    apiUrl: "https://api.themoviedb.org/3/tv/on_the_air",
-  },
-  {
-    label: "In Theaters",
-    value: "theaters",
+    label: "Shows",
+    value: "shows",
     apiUrl: "https://api.themoviedb.org/3/tv/popular",
+  },
+  {
+    label: "Top Rated",
+    value: "rated",
+    apiUrl: "https://api.themoviedb.org/3/movie/top_rated",
+  },
+  {
+    label: "Latest",
+    value: "latest",
+    apiUrl: "https://api.themoviedb.org/3/trending/all/week",
   },
 ];
