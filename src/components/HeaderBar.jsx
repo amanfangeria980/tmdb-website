@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useFetchData from "../hooks/useFetchData";
 import MovieScrollBar from "./MovieScrollBar";
 
@@ -8,11 +8,7 @@ const HeaderBar = ({ options, title }) => {
     options.find((opt) => opt.value === selectedOption).apiUrl
   );
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-  };
-
-  // Calculate the width for each button dynamically
+  // options may vary, so we are dynamically calculating buttonWidth based on options array.
   const buttonWidth = `${100 / options.length}%`;
 
   return (
@@ -39,7 +35,7 @@ const HeaderBar = ({ options, title }) => {
                 selectedOption === option.value ? "text-white" : ""
               }`}
               style={{ width: buttonWidth }}
-              onClick={() => handleOptionClick(option.value)}
+              onClick={() => setSelectedOption(option.value)}
             >
               {option.label}
             </button>
