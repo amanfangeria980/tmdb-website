@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCredentials } from "../context/UserContext";
 
@@ -10,8 +10,6 @@ const LoginForm = () => {
   const { setUser, setEmailId, setIsLoggedIn } = useCredentials();
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const userData = { creds, password };
 
     const storedUserData = localStorage.getItem("user");
     if (storedUserData) {

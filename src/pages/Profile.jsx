@@ -1,4 +1,3 @@
-import React from "react";
 import SignOut from "./SignOut";
 
 const Profile = () => {
