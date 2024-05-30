@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink, Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,9 +9,24 @@ import {
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavSearchBar } from "./NavSearchBar";
+import { useCredentials } from "../context/UserContext";
 
 const Navbar = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setIsLoggedIn(true);
+      const parsedUserData = JSON.parse(userData);
+      setUserName(parsedUserData.username);
+    } else {
+      setIsLoggedIn(false);
+      setUserName("");
+    }
+  }, []);
+
   return (
     <>
       <div className="bg-[#032541] shadow-md">
@@ -39,11 +54,19 @@ const Navbar = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <NavLink to="/login">
-                <button className="mr-4 p-2 text-white text-lg hover:text-gray-300 font-semibold">
-                  Login
-                </button>
-              </NavLink>
+              {isLoggedIn ? (
+                <NavLink to="/profile">
+                  <span className="mr-4 text-white text-lg font-semibold">
+                    {userName}
+                  </span>
+                </NavLink>
+              ) : (
+                <NavLink to="/login">
+                  <button className="mr-4 p-2 text-white text-lg hover:text-gray-300 font-semibold">
+                    Login
+                  </button>
+                </NavLink>
+              )}
               <button className="p-2">
                 <FontAwesomeIcon
                   icon={isSearchActive ? faX : faMagnifyingGlass}

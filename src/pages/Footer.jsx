@@ -1,5 +1,5 @@
 import React from "react";
-import logo2 from "../images/logo2.svg";
+import logo2 from "../assets/images/logo2.svg";
 const Footer = () => {
   return (
     <div className="w-full bg-[#03233E] h-[300px] flex justify-evenly items-center  text-white p-2">
