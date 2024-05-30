@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center">
               <NavLink to="/login">
-                <button className="mr-4 p-2 text-white text-lg hover:text-gray-300">
+                <button className="mr-4 p-2 text-white text-lg hover:text-gray-300 font-semibold">
                   Login
                 </button>
               </NavLink>
