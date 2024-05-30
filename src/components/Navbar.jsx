@@ -13,20 +13,7 @@ import { useCredentials } from "../context/UserContext";
 
 const Navbar = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
-  useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (userData) {
-      setIsLoggedIn(true);
-      const parsedUserData = JSON.parse(userData);
-      setUserName(parsedUserData.username);
-    } else {
-      setIsLoggedIn(false);
-      setUserName("");
-    }
-  }, []);
-
+  const { user, isLoggedIn } = useCredentials();
   return (
     <>
       <div className="bg-[#032541] shadow-md">
@@ -54,10 +41,10 @@ const Navbar = () => {
               </div>
             </div>
             <div className="flex items-center">
-              {isLoggedIn ? (
+              {isLoggedIn && user ? (
                 <NavLink to="/profile">
                   <span className="mr-4 text-white text-lg font-semibold">
-                    {userName}
+                    {user}
                   </span>
                 </NavLink>
               ) : (

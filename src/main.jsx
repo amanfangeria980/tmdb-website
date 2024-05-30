@@ -15,8 +15,8 @@ import { UserProvider } from "./context/UserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UserProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <UserProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<App />} />
@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/profile" element={<Profile />}></Route>
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </UserProvider>
+      </UserProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

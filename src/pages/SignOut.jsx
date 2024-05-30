@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useCredentials } from "./../context/UserContext";
 
 const SignOut = () => {
   const navigate = useNavigate();
-
+  const { setUser, setEmailId } = useCredentials();
   const handleSignOut = () => {
-    localStorage.clear();
+    setUser(null);
+    setEmailId(null);
     alert("You have been signed out.");
     navigate("/");
   };

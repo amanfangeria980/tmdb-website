@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCredentials } from "../context/UserContext";
 
 const SignupForm = () => {
   const [username, setUsername] = useState("");
@@ -7,7 +8,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
+  const { setUser, setEmailId, setIsLoggedIn } = useCredentials();
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = { username, email, password };
@@ -21,11 +22,16 @@ const SignupForm = () => {
         return;
       }
     }
+    // update the context
+    setUser(username);
+    setEmailId(email);
+    setIsLoggedIn(true);
 
     // Save user data to localStorage
     localStorage.setItem("user", JSON.stringify(userData));
     // You may want to redirect to another page after successful signup
-    navigate("/login");
+    // navigate("/login");
+    navigate("/");
   };
 
   const handleLogin = () => {

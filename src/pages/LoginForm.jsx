@@ -3,16 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useCredentials } from "../context/UserContext";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [creds, setCreds] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
-  const { setUser, setEmail } = useCredentials();
-
+  const { setUser, setEmailId, setIsLoggedIn } = useCredentials();
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Your login logic here
     const userData = { creds, password };
 
     const storedUserData = localStorage.getItem("user");
@@ -20,7 +18,8 @@ const LoginForm = () => {
       const parsedUserData = JSON.parse(storedUserData);
       if (parsedUserData.password === password) {
         setUser(parsedUserData.username);
-        setEmail(parsedUserData.email);
+        setEmailId(parsedUserData.email);
+        setIsLoggedIn(true);
         navigate("/");
       } else {
         setError("Invalid email/username or password");
@@ -30,10 +29,6 @@ const LoginForm = () => {
     }
     setCreds("");
     setPassword("");
-  };
-
-  const handleSignUp = () => {
-    navigate("/signup");
   };
 
   return (
@@ -76,7 +71,7 @@ const LoginForm = () => {
         </button>
         <button
           type="button"
-          onClick={handleSignUp}
+          onClick={() => navigate("/signup")}
           className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition duration-300 ease-in-out"
         >
           Sign Up
