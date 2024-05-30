@@ -1,36 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useFetchData from "../hooks/useFetchData";
 import MovieScrollBar from "./MovieScrollBar";
 
 const HeaderBar = ({ options }) => {
   const [selectedOption, setSelectedOption] = useState(options[0].value);
-  const [data, setData] = useState(null);
-
-  const fetchData = async (option) => {
-    const selectedOptionData = options.find((opt) => opt.value === option);
-    if (!selectedOptionData) return;
-
-    const { value, apiUrl } = selectedOptionData;
-
-    try {
-      const response = await fetch(
-        `${apiUrl}?api_key=${import.meta.env.VITE_API_KEY}`
-      );
-      if (!response.ok) {
-        throw new Error(`Error fetching ${value} data: ${response.statusText}`);
-      }
-      const responseData = await response.json();
-      setData(responseData);
-      console.log(`${value} data:`, responseData);
-    } catch (error) {
-      console.error(`Error fetching ${value} data:`, error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData(selectedOption);
-    console.log(data);
-    console.log("Hello");
-  }, [selectedOption]);
+  const data = useFetchData(
+    options.find((opt) => opt.value === selectedOption).apiUrl
+  );
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
