@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import useFetchData from "../hooks/useFetchData";
 import MovieScrollBar from "./MovieScrollBar";
 
 const HeaderBar = ({ options, title }) => {
+  // using a default value
   const [selectedOption, setSelectedOption] = useState(options[0].value);
+  // fetching data based on option chosen
   const data = useFetchData(
     options.find((opt) => opt.value === selectedOption).apiUrl
   );

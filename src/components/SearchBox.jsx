@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import bgImage from "../assets/images/bgimage.webp";
 const SearchBox = () => {
   const [searchText, setSearchText] = useState("");

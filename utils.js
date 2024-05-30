@@ -1,8 +1,6 @@
 export function formatDate(dateString) {
-  // Convert string to Date object
   const dateObj = new Date(dateString);
 
-  // Format the date
   const formattedDate = dateObj.toLocaleDateString("en-US", {
     month: "short",
     day: "2-digit",

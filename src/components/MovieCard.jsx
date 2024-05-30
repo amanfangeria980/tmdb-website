@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import { formatDate } from "./../../utils";
 import { NavLink } from "react-router-dom";
 const MovieCard = ({
@@ -32,7 +32,6 @@ const MovieCard = ({
         </div>
         <div className="px-4 py-2 flex-1 flex flex-col justify-between">
           <div className="font-bold text-md mb-1 overflow-hidden">
-            {/* Using ellipsis to truncate long titles */}
             <p className="text-white truncate">{title || name}</p>
           </div>
           <p className="text-gray-200 text-sm">
