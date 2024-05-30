@@ -73,13 +73,13 @@ export const NavSearchBar = ({ setIsSearchActive }) => {
       </div>
       {searchText === "" ? (
         <div className="bg-[#F7F7F7] p-2">
-          <span className="font-bold text-xl ml-[262px]">
+          <span className="font-bold text-xl md:ml-[262px] ml-[45px]">
             <FontAwesomeIcon icon={faArrowTrendUp} color="black" /> Trending
           </span>
         </div>
       ) : null}
 
-      <div className="p-2 ml-[262px]">
+      <div className="p-2 md:ml-[262px] ml-[45px]">
         <ul>
           {data.map((item) => {
             return (
