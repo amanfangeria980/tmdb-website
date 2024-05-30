@@ -49,7 +49,7 @@ export const NavSearchBar = ({ setIsSearchActive }) => {
 
   return (
     <div className="absolute w-full bg-white z-30 border-b-gray-200 border">
-      <div className="flex items-center justify-center border-b p-2 border-gray-200">
+      <div className="flex items-center justify-center border-b p-2 border-gray-200 md:mx-64">
         <FontAwesomeIcon icon={faSearch} size="xs" />
         <input
           type="text"
