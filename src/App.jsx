@@ -7,8 +7,8 @@ function App() {
     <>
       <div>
         <SearchBox />
-        <HeaderBar options={trendingOptions} />
-        <HeaderBar options={popularOptions} />
+        <HeaderBar options={trendingOptions} title="Trending" />
+        <HeaderBar options={popularOptions} title="What's Popular" />
       </div>
     </>
   );

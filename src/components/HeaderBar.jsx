@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useFetchData from "../hooks/useFetchData";
 import MovieScrollBar from "./MovieScrollBar";
 
-const HeaderBar = ({ options }) => {
+const HeaderBar = ({ options, title }) => {
   const [selectedOption, setSelectedOption] = useState(options[0].value);
   const data = useFetchData(
     options.find((opt) => opt.value === selectedOption).apiUrl
@@ -16,9 +16,9 @@ const HeaderBar = ({ options }) => {
   const buttonWidth = `${100 / options.length}%`;
 
   return (
-    <div>
+    <div className="md:mx-20">
       <div className="flex items-center m-8 flex-row">
-        <h2 className="text-xl font-semibold mr-5">Trending</h2>
+        <h2 className="text-xl font-semibold mr-5">{title}</h2>
         <div
           className="relative bg-white rounded-full border border-black flex"
           style={{ width: `${120 * options.length}px` }}
@@ -32,7 +32,6 @@ const HeaderBar = ({ options }) => {
               }%)`,
             }}
           ></div>
-          <div></div>
           {options.map((option) => (
             <button
               key={option.value}
@@ -47,7 +46,8 @@ const HeaderBar = ({ options }) => {
           ))}
         </div>
       </div>
-      <div>
+
+      <div className="">
         {data ? <MovieScrollBar data={data.results} /> : <p>Loading...</p>}
       </div>
     </div>
