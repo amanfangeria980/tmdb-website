@@ -17,11 +17,11 @@ const HeaderBar = ({ options, title }) => {
 
   return (
     <div className="md:mx-20">
-      <div className="flex items-center m-8 flex-row">
+      <div className="flex items-center m-8 md:flex-row flex-col gap-5 ">
         <h2 className="text-xl font-semibold mr-5">{title}</h2>
         <div
           className="relative bg-white rounded-full border border-black flex"
-          style={{ width: `${120 * options.length}px` }}
+          style={{ width: `${100 * options.length}px` }}
         >
           <div
             className={`absolute top-0 h-full bg-[#032541] rounded-full transition-transform duration-500`}
