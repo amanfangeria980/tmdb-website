@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useFetchData from "./../hooks/useFetchData";
+import MovieCard from "./../components/MovieCard";
+import ShowCard from "./../components/ShowCard";
 
 const ShowPage = ({ type }) => {
   const params = useParams();
@@ -24,21 +26,25 @@ const ShowPage = ({ type }) => {
 
   return (
     <div>
-      <span>
-        {/* {data ? (
+      {/* <span>
+        {data ? (
           <div>
             <h1>{data.title || data.name}</h1>
           </div>
         ) : (
           <div>Loading...</div>
-        )} */}
-      </span>
-      <div className="bg-right bg-[#050505] bg-contain bg-no-repeat h-[70vh] w-full">
-        <img
-          src={`https://media.themoviedb.org/t/p/original${data?.backdrop_path}`}
-          alt=""
-          className=" w-full h-full object-cover"
-        />
+        )}
+      </span> */}
+      <div
+        className="relative h-[70vh] mb-52 w-full bg-cover "
+        style={{
+          backgroundImage: `url(https://media.themoviedb.org/t/p/original${data?.backdrop_path})`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div className="relative flex justify-between items-center">
+          <ShowCard {...data} />
+        </div>
       </div>
     </div>
   );
