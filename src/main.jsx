@@ -22,8 +22,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/" element={<App />} />
           <Route path="/login" element={<LoginForm />}></Route>
           <Route path="/signup" element={<SignupForm />}></Route>
-          <Route path="/movie/:movieId" element={<ShowPage />}></Route>
-          <Route path="/tv/:tvId" element={<ShowPage />}></Route>
+          <Route
+            path="/movie/:movieId"
+            element={<ShowPage type="movie" />}
+          ></Route>
+          <Route path="/tv/:tvId" element={<ShowPage type="tv" />}></Route>
           <Route path="/favourites" element={<Favourites />}></Route>
           <Route path="/watchlist" element={<WatchList />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
