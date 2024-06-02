@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-
+import { MdNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 const CastScrollBar = ({ id }) => {
   const [data, setData] = useState([]);
   const scrollContainerRef = useRef(null);
@@ -21,7 +22,7 @@ const CastScrollBar = ({ id }) => {
 
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400;
+      const scrollAmount = 150;
       if (direction === "next") {
         scrollContainerRef.current.scrollLeft += scrollAmount;
       } else if (direction === "prev") {
@@ -31,20 +32,36 @@ const CastScrollBar = ({ id }) => {
   };
 
   return (
-    <div className="w-full overflow-x-hidden">
-      <button onClick={() => handleScroll("prev")}>prev</button>
-      <button onClick={() => handleScroll("next")}>next</button>
-      <div 
-        ref={scrollContainerRef} 
-        className="flex gap-[20px] flex-row items-center h-[30vh] overflow-x-scroll" 
-        style={{ width: `${data.length * 400}px` }}
+    <div className="w-full h-full relative overflow-x-hidden">
+      <button
+        className="transform -translate-y-1/2 absolute left-4 top-1/2 bg-[#032541] text-white rounded-full h-[50px] items-center justify-center flex w-[50px]"
+        onClick={() => handleScroll("prev")}
+      >
+        <GrFormPrevious />
+      </button>
+      <button
+        className="absolute transform -translate-y-1/2 right-4 top-1/2 bg-[#032541] text-white rounded-full h-[50px] items-center justify-center flex w-[50px]"
+        onClick={() => handleScroll("next")}
+      >
+        <MdNavigateNext />
+      </button>
+      <div
+        ref={scrollContainerRef}
+        className="flex gap-[20px] flex-row items-center h-full overflow-x-scroll scroll-smooth scrollbar-hide"
+        style={{ width: `${data.length * 150}px` }}
       >
         {data.map((cast, index) => (
+            
           <div
             key={index}
-            className="flex border-[2px] bg-white h-full flex-col min-w-[400px]"
+            className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px]"
           >
-            {cast.name}
+            <img
+              className="w-full h-[70%] object-fit rounded-t-lg"
+              src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
+            ></img>
+            <div className="font-bold mt-2">{cast.original_name}</div>
+            <div className="mt-2">{cast.character}</div>
           </div>
         ))}
       </div>

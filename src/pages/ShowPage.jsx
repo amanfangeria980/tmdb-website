@@ -46,7 +46,7 @@ const ShowPage = ({ type }) => {
           <ShowCard {...data} />
         </div>
       </div>
-      <div className="relative h-[40vh]">
+      <div className="relative mt-4 h-[40vh]">
         <CastScrollbar id={params.movieId} />
       </div>
     </div>
