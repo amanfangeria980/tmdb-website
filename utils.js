@@ -45,3 +45,26 @@ export const popularOptions = [
     apiUrl: "https://api.themoviedb.org/3/trending/all/week",
   },
 ];
+
+export function formatRuntime(minutes) {
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+
+  if (hours === 0) {
+    return `${remainingMinutes}m`;
+  } else if (remainingMinutes === 0) {
+    return `${hours}h`;
+  } else {
+    return `${hours}h ${remainingMinutes}m`;
+  }
+}
+
+export const getPathColor = (percentage) => {
+  if (percentage < 50) {
+    const greenValue = Math.round((percentage / 50) * 255);
+    return `rgb(255, ${greenValue}, 0)`;
+  } else {
+    const redValue = Math.round(((100 - percentage) / 50) * 255);
+    return `rgb(${redValue}, 255, 0)`;
+  }
+};
