@@ -12,6 +12,7 @@ import LoginForm from "./pages/LoginForm.jsx";
 import SignupForm from "./pages/SignupForm.jsx";
 import Profile from "./pages/Profile.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
+import CastPage from "./pages/CastPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/favourites" element={<Favourites />}></Route>
           <Route path="/watchlist" element={<WatchList />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/cast/castId" element={<CastPage />}></Route>
         </Routes>
         <Footer />
       </UserProvider>

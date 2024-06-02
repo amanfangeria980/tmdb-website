@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
-const CastScrollBar = ({ id }) => {
+import { Link } from "react-router-dom";
+
+const CastScrollBar = ({ id, media_type }) => {
   const [data, setData] = useState([]);
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      let apiUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${
+      let apiUrl = `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${
         import.meta.env.VITE_API_KEY
       }`;
+
       console.log(apiUrl);
       try {
         const response = await fetch(apiUrl);
@@ -54,17 +57,16 @@ const CastScrollBar = ({ id }) => {
         style={{ width: `${data.length * 150}px` }}
       >
         {data.map((cast, index) => (
-          <div
-            key={index}
-            className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px]"
-          >
-            <img
-              className="w-full h-[70%] object-fit rounded-t-lg"
-              src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
-            ></img>
-            <div className="font-bold mt-2">{cast.name}</div>
-            <div className="mt-2">{cast.character}</div>
-          </div>
+          <Link to={`/cast/${cast.id}`} key={index}>
+            <div className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px]">
+              <img
+                className="w-full h-[70%] object-fit rounded-t-lg"
+                src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
+              ></img>
+              <div className="font-bold mt-2">{cast.name}</div>
+              <div className="mt-2">{cast.character}</div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
