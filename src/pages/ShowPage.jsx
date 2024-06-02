@@ -39,7 +39,8 @@ const ShowPage = ({ type }) => {
       ) : (
         <div>Loading...</div>
       )}
-      <div className="relative mt-4 h-[40vh]">
+      <div className="mx-5 font-bold text-xl mt-2">Cast Details: </div>
+      <div className="relative mt-4 h-[40vh] mx-4">
         <CastScrollbar id={params.movieId} />
       </div>
     </div>

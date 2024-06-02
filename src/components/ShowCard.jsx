@@ -13,7 +13,6 @@ const ShowCard = ({
   poster_path,
   release_date,
   vote_average,
-  director,
   first_air_date,
   genres,
   name,
@@ -39,15 +38,8 @@ const ShowCard = ({
 
         <div className="px-4 py-2 flex-1 flex flex-col justify-between">
           <div className="font-bold text-md mb-1 overflow-hidden">
-            <p className="text-white truncate">{title || name}</p>
+            <p className="text-white truncate text-center">Watch Now!</p>
           </div>
-          <p className="text-gray-200 text-sm">
-            <span className="whitespace-normal break-all">
-              {release_date
-                ? formatDate(release_date)
-                : formatDate(first_air_date)}
-            </span>
-          </p>
         </div>
       </div>
       <div className="w-[80%] gap-4 flex flex-col">
