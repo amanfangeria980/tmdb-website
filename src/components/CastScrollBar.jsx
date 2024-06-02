@@ -7,7 +7,10 @@ const CastScrollBar = ({ id }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let apiUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=8b7cde159e4005f36fe55ae71ddcaea3`;
+      let apiUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${
+        import.meta.env.VITE_API_KEY
+      }`;
+      console.log(apiUrl);
       try {
         const response = await fetch(apiUrl);
         const result = await response.json();
@@ -51,7 +54,6 @@ const CastScrollBar = ({ id }) => {
         style={{ width: `${data.length * 150}px` }}
       >
         {data.map((cast, index) => (
-            
           <div
             key={index}
             className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px]"
@@ -60,7 +62,7 @@ const CastScrollBar = ({ id }) => {
               className="w-full h-[70%] object-fit rounded-t-lg"
               src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
             ></img>
-            <div className="font-bold mt-2">{cast.original_name}</div>
+            <div className="font-bold mt-2">{cast.name}</div>
             <div className="mt-2">{cast.character}</div>
           </div>
         ))}

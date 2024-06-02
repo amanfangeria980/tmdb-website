@@ -5,7 +5,7 @@ import CastScrollbar from "../components/CastScrollBar";
 
 const ShowPage = ({ type }) => {
   const params = useParams();
-  console.log(type);
+  // console.log(type);
 
   let apiUrl =
     type === "movie"
@@ -20,7 +20,7 @@ const ShowPage = ({ type }) => {
     ? `https://image.tmdb.org/t/p/w500${data?.backdrop_path}`
     : null;
 
-  console.log("Backdrop URL:", backdropUrl);
+  // console.log("Backdrop URL:", backdropUrl);
 
   return (
     <div>
