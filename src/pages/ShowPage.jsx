@@ -1,8 +1,8 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import useFetchData from "./../hooks/useFetchData";
-import MovieCard from "./../components/MovieCard";
+// import MovieCard from "./../components/MovieCard";
 import ShowCard from "./../components/ShowCard";
+import CastScrollbar from "../components/CastScrollBar";
 
 const ShowPage = ({ type }) => {
   const params = useParams();
@@ -36,15 +36,18 @@ const ShowPage = ({ type }) => {
         )}
       </span> */}
       <div
-        className="relative h-[70vh] mb-52 w-full bg-cover "
+        className="relative h-[75vh] bg-left-top bg-[length:140%_140%] w-full  "
         style={{
           backgroundImage: `url(https://media.themoviedb.org/t/p/original${data?.backdrop_path})`,
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        <div className="relative flex justify-between items-center">
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="relative h-full w-full">
           <ShowCard {...data} />
         </div>
+      </div>
+      <div className="relative h-[40vh]">
+        <CastScrollbar id={params.movieId} />
       </div>
     </div>
   );

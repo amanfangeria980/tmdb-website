@@ -6,6 +6,7 @@ const useFetchData = (apiUrl) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(`${apiUrl}?api_key=${import.meta.env.VITE_API_KEY}`);
         const response = await fetch(
           `${apiUrl}?api_key=${import.meta.env.VITE_API_KEY}`
         );
