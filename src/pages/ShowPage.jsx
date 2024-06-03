@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import useFetchData from "./../hooks/useFetchData";
 import ShowCard from "./../components/ShowCard";
@@ -15,18 +16,11 @@ const ShowPage = ({ type }) => {
   const data = useFetchData(apiUrl);
   console.log("Fetched data:", data);
 
-  // Check if data exists and backdrop_path is not null or undefined
-  const backdropUrl = data?.backdrop_path
-    ? `https://image.tmdb.org/t/p/w500${data?.backdrop_path}`
-    : null;
-
-  // console.log("Backdrop URL:", backdropUrl);
-
   return (
     <div>
       {data ? (
         <div
-          className="relative h-[90vh] md:h-[75vh] bg-left-top bg-[length:140%_140%] w-full  "
+          className="relative h-[120vh] md:h-[75vh] bg-left-top bg-[length:140%_140%] w-full "
           style={{
             backgroundImage: `url(https://media.themoviedb.org/t/p/original${data?.backdrop_path})`,
           }}

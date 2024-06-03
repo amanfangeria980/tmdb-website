@@ -54,7 +54,7 @@ const ShowCard = ({ obj }) => {
   const genreNames = obj.genres.map((genre) => genre.name).join(", ");
 
   return (
-    <div className="flex flex-col md:flex-row px-0  md:px-8 lg:px-16 items-center gap-6 h-full">
+    <div className="flex flex-col md:flex-row  md:px-8 lg:px-16 items-center gap-6 h-full">
       <div
         key={obj.id}
         className="w-full  md:rounded-lg md:h-[90%] h-[55%] md:w-1/3 lg:w-1/4 flex flex-col shadow-sm shadow-zinc-300-500 bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] overflow-hidden hover:from-[#2E9DC4] hover:to-[#0597C2]"
@@ -67,9 +67,7 @@ const ShowCard = ({ obj }) => {
 
         <div className="px-4 py-2 flex-1 flex flex-col justify-between">
           <div className="font-bold text-md mb-1 overflow-hidden">
-            <p className="text-white truncate text-center">
-              Watch Now on Apple!
-            </p>
+            {/* <p className="text-white truncate text-center"></p> */}
           </div>
         </div>
       </div>
