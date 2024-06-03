@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useFetchData from "./../hooks/useFetchData";
 import { calculateAge, formatDate, getGender } from "../../utils";
 import { FcPrevious, FcNext } from "react-icons/fc";
+import CastKnownForScrollBar from "./../components/CastKnownForScrollBar";
 
 const CastPage = () => {
   const params = useParams();
@@ -83,6 +84,10 @@ const CastPage = () => {
               </span>
             )}
           </span>
+        </div>
+
+        <div>
+          <CastKnownForScrollBar castId={castId} />
         </div>
       </div>
     </div>

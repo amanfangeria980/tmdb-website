@@ -9,6 +9,7 @@ const useFetchData = (apiUrl) => {
         const response = await fetch(
           `${apiUrl}?api_key=${import.meta.env.VITE_API_KEY}`
         );
+        console.log(`${apiUrl}?api_key=${import.meta.env.VITE_API_KEY}`);
         if (!response.ok) {
           throw new Error(`Error fetching data: ${response.statusText}`);
         }
