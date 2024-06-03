@@ -58,14 +58,16 @@ const CastScrollBar = ({ id, media_type }) => {
       >
         {data.map((cast, index) => (
           <Link to={`/cast/${cast.id}`} key={index}>
-            <div className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px]">
+            <div className="flex items-center border-2 rounded-lg  bg-white h-[35vh] flex-col min-w-[150px]">
               <img
                 className="w-full h-[70%] object-fit rounded-t-lg"
                 src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
               ></img>
-              <div className="font-bold mt-2">{cast.name}</div>
-              <div className="mt-2">{cast.character}</div>
-          </div>
+              <div className="h-[30%] p-2 flex-col  items-start justify-start w-full">
+                <div className="font-bold mt-2">{cast.name}</div>
+                <div className=" flex w-full mt-2">{cast.character}</div>
+              </div>
+            </div>
           </Link>
         ))}
         ``
