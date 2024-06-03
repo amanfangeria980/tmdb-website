@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { formatDate, formatRuntime } from "./../../utils";
-import { IoOptionsOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
@@ -53,7 +52,9 @@ const ShowCard = ({ obj }) => {
 
         <div className="px-4 py-2 flex-1 flex flex-col justify-between">
           <div className="font-bold text-md mb-1 overflow-hidden">
-            <p className="text-white truncate text-center">Watch Now!</p>
+            <p className="text-white truncate text-center">
+              Watch Now on Apple!
+            </p>
           </div>
         </div>
       </div>
@@ -136,7 +137,7 @@ const ShowCard = ({ obj }) => {
         <div className="text-white font-[700] text-[25px]">Overview</div>
         <div className="text-white text-[15px]">{obj.overview}</div>
         <div className="flex items-center justify-between w-[70%]">
-          <div>
+          {/* <div>
             <div className="text-white text-[15px] font-[700]">
               Denis Villeneuve
             </div>
@@ -151,7 +152,7 @@ const ShowCard = ({ obj }) => {
           <div>
             <div className="text-white text-[15px] font-[700]">Jon Spaihts</div>
             <div className="text-white text-[15px] ">screen play</div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

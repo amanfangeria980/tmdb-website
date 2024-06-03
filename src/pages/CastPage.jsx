@@ -29,7 +29,7 @@ const CastPage = () => {
           src={`https://image.tmdb.org/t/p/original/${data?.profile_path}`}
           style={{ height: "450px" }}
           alt="cast image"
-          className="rounded-lg max-w-[315px]"
+          className="rounded-lg max-w-[315px] m-auto mb-2"
         />
         <span className="font-semibold text-xl p-1">Personal Info</span>
         <div className="p-2">

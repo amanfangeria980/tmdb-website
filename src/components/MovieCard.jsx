@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { formatDate } from "./../../utils";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const MovieCard = ({
   id,
   title,
@@ -14,7 +14,7 @@ const MovieCard = ({
   const imageUrl = `https://media.themoviedb.org/t/p/original${poster_path}`;
 
   return (
-    <NavLink to={media_type === "movie" ? `/movie/${id}` : `tv/${id}`}>
+    <Link to={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
       <div
         key={id}
         className="w-56 h-100 rounded-lg overflow-hidden shadow-sm shadow-zinc-300-500 m-2 flex flex-col relative min-h-[350px] min-w-[200px] bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] hover:from-[#2E9DC4] hover:to-[#0597C2]"
@@ -43,7 +43,7 @@ const MovieCard = ({
           </p>
         </div>
       </div>
-    </NavLink>
+    </Link>
   );
 };
 
