@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { formatDate, formatRuntime } from "./../../utils";
 import { IoOptionsOutline } from "react-icons/io5";
