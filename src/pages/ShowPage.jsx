@@ -26,7 +26,7 @@ const ShowPage = ({ type }) => {
     <div>
       {data ? (
         <div
-          className="relative h-[75vh] bg-left-top bg-[length:140%_140%] w-full  "
+          className="relative h-[90vh] md:h-[75vh] bg-left-top bg-[length:140%_140%] w-full  "
           style={{
             backgroundImage: `url(https://media.themoviedb.org/t/p/original${data?.backdrop_path})`,
           }}
