@@ -29,7 +29,7 @@ const CastKnownForScrollBar = ({ castId }) => {
   };
 
   return (
-    <div className="w-full h-full relative overflow-x-auto scrollbar-hide">
+    <div className="w-full h-full relative overflow-x-auto scrollbar-hide ">
       <button
         className="transform -translate-y-1/2 absolute left-4 top-1/2 bg-[#032541] text-white rounded-full h-[50px] items-center justify-center flex w-[50px]"
         onClick={() => handleScroll("prev")}
@@ -56,7 +56,7 @@ const CastKnownForScrollBar = ({ castId }) => {
             }
             key={index}
           >
-            <div className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px]">
+            <div className="flex items-center border-2 rounded-lg  bg-white h-full flex-col min-w-[150px] min-h-[350px] text-center">
               <img
                 className="w-full h-[70%] object-fit rounded-t-lg"
                 src={`https://media.themoviedb.org/t/p/original${item.poster_path}`}
