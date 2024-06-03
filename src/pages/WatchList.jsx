@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MovieCard from "./../components/MovieCard";
 import { FaBookmark } from "react-icons/fa";
 import { TiDeleteOutline } from "react-icons/ti";

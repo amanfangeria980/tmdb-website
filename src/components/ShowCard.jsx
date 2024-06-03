@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import { formatDate, formatRuntime } from "./../../utils";
 import { FaHeart, FaBookmark, FaPlay } from "react-icons/fa";
 import ProgressCircle from "./ProgressCircle";
@@ -8,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const ShowCard = ({ obj }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const { user, isLoggedIn } = useCredentials();
+  const { isLoggedIn } = useCredentials();
   const navigate = useNavigate();
 
   useEffect(() => {
