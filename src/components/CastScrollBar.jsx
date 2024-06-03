@@ -67,7 +67,7 @@ const CastScrollBar = ({ id, media_type }) => {
               <div className="mt-2">{cast.character}</div>
             </div>
           </Link>
-        ))}
+        ))}``
       </div>
     </div>
   );

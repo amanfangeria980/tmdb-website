@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/favourites" element={<Favourites />}></Route>
           <Route path="/watchlist" element={<WatchList />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/cast/castId" element={<CastPage />}></Route>
+          <Route path="/cast/:castId" element={<CastPage />}></Route>
         </Routes>
         <Footer />
       </UserProvider>
