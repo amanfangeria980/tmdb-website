@@ -19,7 +19,7 @@ const WatchList = () => {
       <h1 className="text-2xl font-semibold mb-4 text-center m-2 p-2">
         Watchlist <FaBookmark className="inline" color="orange" />
       </h1>
-      <div className="flex flex-wrap md:flex-row flex-col">
+      <div className="flex flex-wrap md:flex-row flex-col md:justify-start justify-center items-center">
         {bookmarks.map((bookmark) => (
           <div key={bookmark.id} className="relative">
             <MovieCard {...bookmark} />
