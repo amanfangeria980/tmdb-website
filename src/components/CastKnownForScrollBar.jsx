@@ -14,6 +14,7 @@ const CastKnownForScrollBar = ({ castId }) => {
 
   useEffect(() => {
     setData(res);
+    // console.log(res);
   }, [res]);
 
   const handleScroll = (direction) => {
@@ -28,7 +29,7 @@ const CastKnownForScrollBar = ({ castId }) => {
   };
 
   return (
-    <div className="w-full h-full relative overflow-x-hidden">
+    <div className="w-full h-full relative overflow-x-auto scrollbar-hide">
       <button
         className="transform -translate-y-1/2 absolute left-4 top-1/2 bg-[#032541] text-white rounded-full h-[50px] items-center justify-center flex w-[50px]"
         onClick={() => handleScroll("prev")}
@@ -60,7 +61,7 @@ const CastKnownForScrollBar = ({ castId }) => {
                 className="w-full h-[70%] object-fit rounded-t-lg"
                 src={`https://media.themoviedb.org/t/p/original${item.poster_path}`}
               ></img>
-              <div className="font-bold mt-2">{item.name}</div>
+              <div className="font-bold mt-2">{item.title}</div>
               <div className="mt-2">{item.character}</div>
             </div>
           </Link>

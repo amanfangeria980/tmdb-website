@@ -22,9 +22,9 @@ const CastPage = () => {
     : `${data?.biography.slice(0, 1400)} `;
 
   return (
-    <div className="flex gap-2">
+    <div className="md:flex md:flex-row flex-col gap-2">
       {/* left side */}
-      <div className="m-4 flex flex-col">
+      <div className="m-4 md:flex md:flex-col text-center md:text-left">
         <img
           src={`https://image.tmdb.org/t/p/original/${data?.profile_path}`}
           style={{ height: "450px" }}
@@ -60,7 +60,7 @@ const CastPage = () => {
         </div>
       </div>
       {/* right side  */}
-      <div className="m-4 flex gap-4 flex-col">
+      <div className="m-4 flex gap-4 flex-col text-center  md:text-left">
         <span className="text-4xl font-bold">{data?.name}</span>
         <div>
           <span className="text-xl font-semibold block mb-2">Biography</span>
@@ -86,7 +86,7 @@ const CastPage = () => {
           </span>
         </div>
 
-        <div>
+        <div className=" md:w-[80vw]">
           <CastKnownForScrollBar castId={castId} />
         </div>
       </div>
