@@ -33,7 +33,8 @@ const ShowPage = ({ type }) => {
         >
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className="relative h-full w-full">
-            <ShowCard {...data} />
+            {/* <ShowCard {...data} /> */}
+            <ShowCard obj={data} />
           </div>
         </div>
       ) : (
