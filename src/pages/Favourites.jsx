@@ -19,13 +19,14 @@ const Favourites = () => {
       <h1 className="text-2xl font-semibold mb-4 text-center m-2 p-2">
         Favourites <FaHeart className="inline" color="red" />
       </h1>
-      <div className="flex flex-wrap md:flex-row flex-col md:justify-start justify-center items-center">
+      <div className="flex flex-wrap md:flex-row flex-col justify-center min-h-[500px]">
         {favorites.map((favorite) => (
           <div key={favorite.id} className="relative">
             <MovieCard {...favorite} />
             <div className="absolute top-3 right-2">
               <TiDeleteOutline
                 className="text-3xl cursor-pointer"
+                color="orange"
                 onClick={() => removeFromFavorites(favorite.id)}
               />
             </div>

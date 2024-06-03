@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { formatDate, formatRuntime } from "./../../utils";
-import { FaHeart } from "react-icons/fa";
-import { FaBookmark } from "react-icons/fa";
-import { FaPlay } from "react-icons/fa";
+import { FaHeart, FaBookmark, FaPlay } from "react-icons/fa";
 import ProgressCircle from "./ProgressCircle";
 import { useCredentials } from "./../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -54,13 +52,13 @@ const ShowCard = ({ obj }) => {
   const genreNames = obj.genres.map((genre) => genre.name).join(", ");
 
   return (
-    <div className="flex px-[120px] items-center gap-6 h-full">
+    <div className="flex flex-col md:flex-row px-4 md:px-8 lg:px-16 items-center gap-6 h-full">
       <div
         key={obj.id}
-        className=" flex flex-col  w-[25%]  rounded-lg  shadow-sm shadow-zinc-300-500 h-[90%] bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] overflow-hidden hover:from-[#2E9DC4] hover:to-[#0597C2]"
+        className="w-full md:w-1/3 lg:w-1/4 flex flex-col rounded-lg shadow-sm shadow-zinc-300-500 bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] overflow-hidden hover:from-[#2E9DC4] hover:to-[#0597C2]"
       >
         <img
-          className="w-full h-[90%] object-cover"
+          className="w-full h-60 md:h-full object-cover"
           src={imageUrl}
           alt={obj.title || obj.name}
         />
@@ -73,57 +71,63 @@ const ShowCard = ({ obj }) => {
           </div>
         </div>
       </div>
-      <div className="w-[80%] gap-4 flex flex-col">
-        <div className="flex gap-2">
-          <div className="text-white text-[35px] font-[700]">
+      <div className="w-full md:w-2/3 lg:w-3/4 flex flex-col gap-4">
+        <div className="flex gap-2 flex-wrap">
+          <div className="text-white text-2xl md:text-3xl lg:text-4xl font-bold">
             {obj.title || obj.name}
           </div>
-          <div className="text-[#DACFCD] text-[35px]">
+          <div className="text-[#DACFCD] text-xl md:text-2xl lg:text-3xl">
             ({(obj.release_date || obj.first_air_date)?.substring(0, 4)})
           </div>
         </div>
-        <div className="flex gap-[10px] items-center">
-          <div className="border border-white text-white rounded-md text-[16px] p-1">
+        <div className="flex gap-2 md:gap-4 items-center flex-wrap">
+          <div className="border border-white text-white rounded-md text-sm md:text-base lg:text-lg p-1">
             PG-13
           </div>
-          <div className="text-white text-[18px]">
+          <div className="text-white text-sm md:text-base lg:text-lg">
             {formatDate(obj.release_date || obj.first_air_date)}
           </div>
-          <div className="text-white text-[18px]">
+          <div className="text-white text-sm md:text-base lg:text-lg">
             {genreNames}
-            {obj.runtime ? (
-              <span className="ml-2 text-white text-[18px]">
+            {obj.runtime && (
+              <span className="ml-2 text-white text-sm md:text-base lg:text-lg">
                 {formatRuntime(obj.runtime)}
               </span>
-            ) : null}
+            )}
           </div>
         </div>
-        <div className="flex gap-[10px] items-center">
-          <div className="flex text-white font-[700] flex-col">
+        <div className="flex gap-2 md:gap-4 items-center">
+          <div className="flex text-white font-bold flex-col">
             <ProgressCircle percentage={Math.round(obj.vote_average * 10)} />
           </div>
           <div className="flex">
-            <div className="text-[30px] hover:scale-150">🤯</div>
-            <div className="text-[30px] hover:scale-150">😍</div>
-            <div className="text-[30px] hover:scale-150">🙂</div>
+            <div className="text-lg md:text-xl lg:text-2xl hover:scale-125">
+              🤯
+            </div>
+            <div className="text-lg md:text-xl lg:text-2xl hover:scale-125">
+              😍
+            </div>
+            <div className="text-lg md:text-xl lg:text-2xl hover:scale-125">
+              🙂
+            </div>
           </div>
-          <div className="bg-[#032541] gap-[5px] px-[10px] py-[5px] flex rounded-full text-white text-[18px] font-[600] items-center">
-            Whats your{" "}
+          <div className="bg-[#032541] gap-1 px-2 py-1 flex rounded-full text-white text-sm md:text-base lg:text-lg font-semibold items-center">
+            What's your{" "}
             <span className="underline" style={{ textDecorationColor: "blue" }}>
               vibe!
             </span>
             <div
-              className="bg-white text-[15px] h-[18px] text-[#032541] w-[18px] flex items-center 
-          justify-center font-[800] rounded-full"
+              className="bg-white text-xs md:text-sm h-4 md:h-5 text-[#032541] w-4 md:w-5 flex items-center 
+          justify-center font-bold rounded-full ml-1"
             >
               i
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <div
-            className={`bg-[#032541] text-[15px]  h-[40px] w-[40px] flex items-center 
-          justify-center font-[900] rounded-full ${
+            className={`bg-[#032541] text-sm md:text-base h-10 w-10 flex items-center 
+          justify-center font-bold rounded-full cursor-pointer ${
             isFavorite ? "text-red-500" : "text-white"
           }`}
             onClick={toggleFavorite}
@@ -131,28 +135,29 @@ const ShowCard = ({ obj }) => {
             <FaHeart />
           </div>
           <div
-            className={`bg-[#032541] text-[15px]  h-[40px] w-[40px] flex items-center 
-          justify-center font-[900] rounded-full ${
+            className={`bg-[#032541] text-sm md:text-base h-10 w-10 flex items-center 
+          justify-center font-bold rounded-full cursor-pointer ${
             isBookmarked ? "text-yellow-500" : "text-white"
           }`}
             onClick={toggleBookmark}
           >
             <FaBookmark />
           </div>
-          <div className="text-white flex items-center gap-2 font-[600]">
+          <div className="text-white flex items-center gap-2 font-semibold cursor-pointer">
             <FaPlay />
             Play Trailer
           </div>
         </div>
         {obj.tagline && (
-          <div className="font-[600] text-[18px] text-[#DACFCD]">
+          <div className="font-semibold text-sm md:text-base lg:text-lg text-[#DACFCD]">
             {obj.tagline}
           </div>
         )}
-        <div className="text-white font-[700] text-[25px]">Overview</div>
-        <div className="text-white text-[15px]">{obj.overview}</div>
-        <div className="flex items-center justify-between w-[70%]">
-          {/* Add the remaining content */}
+        <div className="text-white font-bold text-lg md:text-xl lg:text-2xl">
+          Overview
+        </div>
+        <div className="text-white text-sm md:text-base lg:text-lg">
+          {obj.overview}
         </div>
       </div>
     </div>
