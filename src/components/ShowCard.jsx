@@ -57,10 +57,10 @@ const ShowCard = ({ obj }) => {
     <div className="flex flex-col md:flex-row px-0  md:px-8 lg:px-16 items-center gap-6 h-full">
       <div
         key={obj.id}
-        className="w-full  md:rounded-lg md:h-[90%] h-[60%] md:w-1/3 lg:w-1/4 flex flex-col shadow-sm shadow-zinc-300-500 bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] overflow-hidden hover:from-[#2E9DC4] hover:to-[#0597C2]"
+        className="w-full  md:rounded-lg md:h-[90%] h-[55%] md:w-1/3 lg:w-1/4 flex flex-col shadow-sm shadow-zinc-300-500 bg-gradient-to-r from-[#30BBCE] to-[#06B4E6] overflow-hidden hover:from-[#2E9DC4] hover:to-[#0597C2]"
       >
         <img
-          className="w-full   md:h-[95%] object-cover"
+          className="w-full  md:h-[95%] object-cover"
           src={imageUrl}
           alt={obj.title || obj.name}
         />
@@ -73,7 +73,7 @@ const ShowCard = ({ obj }) => {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-2/3 lg:w-3/4 flex px-4 flex-col gap-4">
+      <div className="w-full md:w-2/3 lg:w-3/4 flex px-4 flex-col gap-3 md:gap-4">
         <div className="flex gap-2 flex-wrap">
           <div className="text-white text-2xl md:text-3xl lg:text-4xl font-bold">
             {obj.title || obj.name}
