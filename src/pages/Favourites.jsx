@@ -1,15 +1,35 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import MovieCard from "./../components/MovieCard";
+import { FaHeart } from "react-icons/fa";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const Favourites = () => {
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  console.log(favorites);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
+
+  const removeFromFavorites = (id) => {
+    const updatedFavorites = favorites.filter((favorite) => favorite.id !== id);
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Favourites</h1>
-      <div className="grid grid-cols-3 gap-4">
+    <div className="w-full">
+      <h1 className="text-2xl font-semibold mb-4 text-center m-2 p-2">
+        Favourites <FaHeart className="inline" color="red" />
+      </h1>
+      <div className="flex flex-wrap md:flex-row flex-col">
         {favorites.map((favorite) => (
-          <MovieCard key={favorite.id} {...favorite} />
+          <div key={favorite.id} className="relative">
+            <MovieCard {...favorite} />
+            <div className="absolute top-3 right-2">
+              <TiDeleteOutline
+                className="text-3xl cursor-pointer"
+                onClick={() => removeFromFavorites(favorite.id)}
+              />
+            </div>
+          </div>
         ))}
       </div>
     </div>

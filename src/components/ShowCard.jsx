@@ -1,14 +1,17 @@
-/* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { formatDate, formatRuntime } from "./../../utils";
 import { FaHeart } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import ProgressCircle from "./ProgressCircle";
+import { useCredentials } from "./../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const ShowCard = ({ obj }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const { user, isLoggedIn } = useCredentials();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -18,6 +21,12 @@ const ShowCard = ({ obj }) => {
   }, [obj]);
 
   const toggleFavorite = () => {
+    if (!isLoggedIn) {
+      alert("Please login to add to favorites.");
+      navigate("/login");
+      return;
+    }
+
     setIsFavorite(!isFavorite);
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const updatedFavorites = isFavorite
@@ -27,6 +36,12 @@ const ShowCard = ({ obj }) => {
   };
 
   const toggleBookmark = () => {
+    if (!isLoggedIn) {
+      alert("Please login to bookmark.");
+      navigate("/login");
+      return;
+    }
+
     setIsBookmarked(!isBookmarked);
     const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
     const updatedBookmarks = isBookmarked
@@ -137,22 +152,7 @@ const ShowCard = ({ obj }) => {
         <div className="text-white font-[700] text-[25px]">Overview</div>
         <div className="text-white text-[15px]">{obj.overview}</div>
         <div className="flex items-center justify-between w-[70%]">
-          {/* <div>
-            <div className="text-white text-[15px] font-[700]">
-              Denis Villeneuve
-            </div>
-            <div className="text-white text-[15px] ">Denis Villeneuve</div>
-          </div>
-          <div>
-            <div className="text-white text-[15px] font-[700]">
-              Frank Herbert
-            </div>
-            <div className="text-white text-[15px] ">Novel</div>
-          </div>
-          <div>
-            <div className="text-white text-[15px] font-[700]">Jon Spaihts</div>
-            <div className="text-white text-[15px] ">screen play</div>
-          </div> */}
+          {/* Add the remaining content */}
         </div>
       </div>
     </div>
