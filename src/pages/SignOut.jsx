@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCredentials } from "./../context/UserContext";
 
@@ -10,6 +9,7 @@ const SignOut = () => {
     setEmailId(null);
     alert("You have been signed out.");
     navigate("/");
+    window.location.reload();
   };
 
   return (
