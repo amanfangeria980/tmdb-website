@@ -61,7 +61,7 @@ const CastScrollBar = ({ id, media_type }) => {
       >
         {data.map((cast, index) => (
           <Link to={`/cast/${cast.id}`} key={index}>
-            <div className="flex items-center border-2 rounded-lg  bg-white h-[35vh] flex-col min-w-[150px]">
+            <div className="flex items-center border-2 rounded-lg  bg-white h-[35vh] flex-col min-w-[150px] overflow-y-hidden">
               {cast.profile_path ? (
                 <img
                   className="w-full h-[70%] object-fit rounded-t-lg"
