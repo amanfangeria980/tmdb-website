@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import BlankProfileImg from "../assets/images/blank_profile.jpeg";
 
 const CastScrollBar = ({ id, media_type }) => {
   const [data, setData] = useState([]);
@@ -61,10 +62,17 @@ const CastScrollBar = ({ id, media_type }) => {
         {data.map((cast, index) => (
           <Link to={`/cast/${cast.id}`} key={index}>
             <div className="flex items-center border-2 rounded-lg  bg-white h-[35vh] flex-col min-w-[150px]">
-              <img
-                className="w-full h-[70%] object-fit rounded-t-lg"
-                src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
-              ></img>
+              {cast.profile_path ? (
+                <img
+                  className="w-full h-[70%] object-fit rounded-t-lg"
+                  src={`https://media.themoviedb.org/t/p/original${cast.profile_path}`}
+                ></img>
+              ) : (
+                <img
+                  className="w-full h-[70%] object-fit rounded-t-lg"
+                  src={BlankProfileImg}
+                ></img>
+              )}
               <div className="h-[30%] p-2 flex-col  items-start justify-start w-full">
                 <div className="font-bold mt-2">{cast.name}</div>
                 <div className=" flex w-full mt-2">{cast.character}</div>
