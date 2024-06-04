@@ -20,18 +20,24 @@ const WatchList = () => {
         Watchlist <FaBookmark className="inline" color="orange" />
       </h1>
       <div className="flex flex-wrap md:flex-row flex-col justify-center min-h-[500px]">
-        {bookmarks.map((bookmark) => (
-          <div key={bookmark.id} className="relative">
-            <MovieCard {...bookmark} />
-            <div className="absolute top-3 right-2">
-              <TiDeleteOutline
-                className="text-3xl cursor-pointer"
-                color="orange"
-                onClick={() => removeFromWatchList(bookmark.id)}
-              />
+        {bookmarks.length > 0 ? (
+          bookmarks.map((bookmark) => (
+            <div key={bookmark.id} className="relative">
+              <MovieCard {...bookmark} />
+              <div className="absolute top-3 right-2">
+                <TiDeleteOutline
+                  className="text-3xl cursor-pointer"
+                  color="orange"
+                  onClick={() => removeFromWatchList(bookmark.id)}
+                />
+              </div>
             </div>
+          ))
+        ) : (
+          <div className="text-center text-3xl m-auto font-bold text-gray-500">
+            No items found...
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

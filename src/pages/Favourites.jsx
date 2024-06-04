@@ -20,18 +20,24 @@ const Favourites = () => {
         Favourites <FaHeart className="inline" color="red" />
       </h1>
       <div className="flex flex-wrap md:flex-row flex-col justify-center min-h-[500px]">
-        {favorites.map((favorite) => (
-          <div key={favorite.id} className="relative">
-            <MovieCard {...favorite} />
-            <div className="absolute top-3 right-2">
-              <TiDeleteOutline
-                className="text-3xl cursor-pointer"
-                color="orange"
-                onClick={() => removeFromFavorites(favorite.id)}
-              />
+        {favorites.length > 0 ? (
+          favorites.map((favorite) => (
+            <div key={favorite.id} className="relative">
+              <MovieCard {...favorite} />
+              <div className="absolute top-3 right-2">
+                <TiDeleteOutline
+                  className="text-3xl cursor-pointer"
+                  color="orange"
+                  onClick={() => removeFromFavorites(favorite.id)}
+                />
+              </div>
             </div>
+          ))
+        ) : (
+          <div className="text-center text-3xl m-auto font-bold text-gray-500">
+            No favourites found...
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
